@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Top 10 des voitures les plus rapides sur Terre en 2026, avec leurs records vérifiés et théoriques.">
+    <meta property="og:title" content="Les Voitures les Plus Rapides du Monde 2026">
+    <meta property="og:description" content="Records vérifiés et théoriques – Hypercars, électriques et essence qui pulvérisent les limites !">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-utilisateur.github.io/voitures-rapides-2026/">
+    <title>Les Voitures les Plus Rapides du Monde 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Variables CSS ===== */
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e0e0e0;
+            --accent-red: #ff0000;
+            --accent-gray: #333;
+            --card-bg: #1a1a1a;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        /* ===== Reset & Base ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== Header / Hero ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://source.unsplash.com/random/1920x1080/?hypercar,racing,track') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--accent-red);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        /* ===== Introduction ===== */
+        .intro {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .intro h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-red);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .intro p {
+            margin-bottom: 15px;
+            max-width: 800px;
+        }
+
+        /* ===== Top 10 Grid ===== */
+        .top10 {
+            padding: 50px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .top10 h2 {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--accent-red);
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .car-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .car-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .car-info {
+            padding: 20px;
+        }
+
+        .car-rank {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-red);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .car-name {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .car-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .car-specs div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .car-specs span:first-child {
+            color: #aaa;
+        }
+
+        .car-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* ===== Filtres ===== */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: var(--accent-gray);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent-red);
+        }
+
+        .filter-btn:hover:not(.active) {
+            background-color: #444;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background-color: #050505;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 20px;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .car-specs {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== Header / Hero ===== -->
+    <section class="hero">
+        <h1>Les Voitures les Plus Rapides sur Terre en 2026</h1>
+        <p>Records vérifiés et théoriques – Hypercars, électriques et essence qui pulvérisent les limites !</p>
+        <button class="cta-button" onclick="scrollToTop10()">Découvre le Top 10</button>
+    </section>
+
+    <!-- ===== Introduction ===== -->
+    <section class="intro">
+        <h2>Qu'est-ce qu'une voiture de production ultra-rapide ?</h2>
+        <p>
+            Une voiture de production ultra-rapide est un véhicule homologué pour la route (road-legal),
+            produit en série limitée, et capable d'atteindre des vitesses extrêmes. Contrairement aux prototypes
+            ou voitures de course, ces modèles doivent respecter les normes routières et être vendus à des clients.
+        </p>
+        <p>
+            Les records de vitesse sont souvent sujets à débat : certains sont <strong>vérifiés</strong> (comme par Guinness ou des organismes indépendants),
+            tandis que d'autres restent <strong>théoriques</strong>, basés sur des simulations ou des conditions idéales.
+            Les défis incluent la tenue de route, l'aérodynamisme, les pneus, et la puissance pure.
+        </p>
+        <p><em>Mise à jour : Janvier 2026</em></p>
+    </section>
+
+    <!-- ===== Filtres ===== -->
+    <section class="top10">
+        <h2>Top 10 des Voitures les Plus Rapides en 2026</h2>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Toutes</button>
+            <button class="filter-btn" data-filter="electric">Électriques</button>
+            <button class="filter-btn" data-filter="gas">Essence</button>
+            <button class="filter-btn" data-filter="speed">Par Vitesse</button>
+        </div>
+
+        <!-- ===== Top 10 Grid ===== -->
+        <div class="car-grid" id="carGrid">
+            <!-- Carte 1: Yangwang U9 Xtreme -->
+            <div class="car-card" data-type="electric" data-speed="308">
+                <img src="https://source.unsplash.com/random/600x400/?hypercar,electric" alt="Yangwang U9 Xtreme - Hypercar électrique chinoise">
+                <div class="car-info">
+                    <div class="car-rank">1.</div>
+                    <div class="car-name">Yangwang U9 Xtreme</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>308 mph (496 km/h)</span></div>
+                        <div><span>Puissance:</span><span>~2 000 ch (électrique)</span></div>
+                        <div><span>0-100 km/h:</span><span>1.8 s</span></div>
+                        <div><span>Prix:</span><span>~$2M</span></div>
+                    </div>
+                    <div class="car-description">
+                        La première hypercar électrique à battre un record de vitesse vérifié en 2025.
+                        Technologie chinoise de pointe et design futuriste.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 2: Koenigsegg Jesko Absolut -->
+            <div class="car-card" data-type="gas" data-speed="330">
+                <img src="https://source.unsplash.com/random/600x400/?koenigsegg,jesko" alt="Koenigsegg Jesko Absolut - Hypercar essence">
+                <div class="car-info">
+                    <div class="car-rank">2.</div>
+                    <div class="car-name">Koenigsegg Jesko Absolut</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>~310-330 mph (théorique)</span></div>
+                        <div><span>Puissance:</span><span>1 600 ch (V8 biturbo)</span></div>
+                        <div><span>0-100 km/h:</span><span>2.5 s</span></div>
+                        <div><span>Prix:</span><span>~$3M</span></div>
+                    </div>
+                    <div class="car-description">
+                        Conçue pour battre tous les records grâce à son aérodynamisme extrême et son V8 suralimenté.
+                        Record officiel en attente de vérification.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 3: Bugatti Mistral -->
+            <div class="car-card" data-type="gas" data-speed="282">
+                <img src="https://source.unsplash.com/random/600x400/?bugatti,mistral" alt="Bugatti Mistral - Hypercar essence">
+                <div class="car-info">
+                    <div class="car-rank">3.</div>
+                    <div class="car-name">Bugatti Mistral</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>~282 mph (454 km/h)</span></div>
+                        <div><span>Puissance:</span><span>1 600 ch (W16)</span></div>
+                        <div><span>0-100 km/h:</span><span>2.0 s</span></div>
+                        <div><span>Prix:</span><span>~$5M</span></div>
+                    </div>
+                    <div class="car-description">
+                        Dernière Bugatti à moteur thermique, héritière de la Chiron.
+                        Design élégant et performances monstrueuses.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 4: Hennessey Venom F5 -->
+            <div class="car-card" data-type="gas" data-speed="311">
+                <img src="https://source.unsplash.com/random/600x400/?hennessey,venom" alt="Hennessey Venom F5 - Hypercar essence">
+                <div class="car-info">
+                    <div class="car-rank">4.</div>
+                    <div class="car-name">Hennessey Venom F5</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>311 mph (500 km/h)</span></div>
+                        <div><span>Puissance:</span><span>1 817 ch (V8 biturbo)</span></div>
+                        <div><span>0-100 km/h:</span><span>2.6 s</span></div>
+                        <div><span>Prix:</span><span>~$2.1M</span></div>
+                    </div>
+                    <div class="car-description">
+                        Développée pour dépasser les 300 mph, avec une aérodynamique inspirée des avions de chasse.
+                        Record controversé en 2020, toujours en quête de reconnaissance.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 5: SSC Tuatara -->
+            <div class="car-card" data-type="gas" data-speed="295">
+                <img src="https://source.unsplash.com/random/600x400/?ssc,tuatara" alt="SSC Tuatara - Hypercar essence">
+                <div class="car-info">
+                    <div class="car-rank">5.</div>
+                    <div class="car-name">SSC Tuatara</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>~295-330 mph (théorique)</span></div>
+                        <div><span>Puissance:</span><span>1 750 ch (V8 biturbo)</span></div>
+                        <div><span>0-100 km/h:</span><span>2.5 s</span></div>
+                        <div><span>Prix:</span><span>~$1.9M</span></div>
+                    </div>
+                    <div class="car-description">
+                        Conçue pour être la voiture de série la plus rapide du monde.
+                        Record de 316 mph revendiqué, mais non officiellement vérifié.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 6: Rimac Nevera R -->
+            <div class="car-card" data-type="electric" data-speed="258">
+                <img src="https://source.unsplash.com/random/600x400/?rimac,nevera" alt="Rimac Nevera R - Hypercar électrique">
+                <div class="car-info">
+                    <div class="car-rank">6.</div>
+                    <div class="car-name">Rimac Nevera R</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>258 mph (412 km/h)</span></div>
+                        <div><span>Puissance:</span><span>1 914 ch (électrique)</span></div>
+                        <div><span>0-100 km/h:</span><span>1.74 s</span></div>
+                        <div><span>Prix:</span><span>~$2.5M</span></div>
+                    </div>
+                    <div class="car-description">
+                        Reine de l'accélération, cette hypercar croate allie performance et technologie électrique de pointe.
+                        Version "R" encore plus radicale que la Nevera originale.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 7: McLaren Speedtail -->
+            <div class="car-card" data-type="gas" data-speed="250">
+                <img src="https://source.unsplash.com/random/600x400/?mclaren,speedtail" alt="McLaren Speedtail - Hypercar essence">
+                <div class="car-info">
+                    <div class="car-rank">7.</div>
+                    <div class="car-name">McLaren Speedtail</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>250 mph (402 km/h)</span></div>
+                        <div><span>Puissance:</span><span>1 035 ch (hybride V8)</span></div>
+                        <div><span>0-100 km/h:</span><span>2.9 s</span></div>
+                        <div><span>Prix:</span><span>~$2.2M</span></div>
+                    </div>
+                    <div class="car-description">
+                        Hyper-GT hybride au design futuriste et à l'aérodynamisme optimisé.
+                        Limitée à 106 exemplaires, tous vendus.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 8: Pagani Huayra -->
+            <div class="car-card" data-type="gas" data-speed="240">
+                <img src="https://source.unsplash.com/random/600x400/?pagani,huayra" alt="Pagani Huayra - Hypercar essence">
+                <div class="car-info">
+                    <div class="car-rank">8.</div>
+                    <div class="car-name">Pagani Huayra</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>~240 mph (386 km/h)</span></div>
+                        <div><span>Puissance:</span><span>800 ch (V12 AMG)</span></div>
+                        <div><span>0-100 km/h:</span><span>2.8 s</span></div>
+                        <div><span>Prix:</span><span>~$3M+</span></div>
+                    </div>
+                    <div class="car-description">
+                        Œuvre d'art italienne sur roues, avec un V12 atmosphérique et un design unique.
+                        La version "Roadster BC" est encore plus extrême.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 9: Aston Martin Valkyrie -->
+            <div class="car-card" data-type="gas" data-speed="250">
+                <img src="https://source.unsplash.com/random/600x400/?aston,martin,valkyrie" alt="Aston Martin Valkyrie - Hypercar essence">
+                <div class="car-info">
+                    <div class="car-rank">9.</div>
+                    <div class="car-name">Aston Martin Valkyrie</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>~250 mph (402 km/h)</span></div>
+                        <div><span>Puissance:</span><span>1 160 ch (V12 hybride)</span></div>
+                        <div><span>0-100 km/h:</span><span>2.5 s</span></div>
+                        <div><span>Prix:</span><span>~$3M</span></div>
+                    </div>
+                    <div class="car-description">
+                        Développée avec Red Bull Racing, cette hypercar utilise des technologies de F1.
+                        Limitée à 150 exemplaires, tous réservés.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 10: Chevrolet Corvette ZR1 2026 -->
+            <div class="car-card" data-type="gas" data-speed="220">
+                <img src="https://source.unsplash.com/random/600x400/?corvette,zr1" alt="Chevrolet Corvette ZR1 2026 - Supercar essence">
+                <div class="car-info">
+                    <div class="car-rank">10.</div>
+                    <div class="car-name">Chevrolet Corvette ZR1 2026</div>
+                    <div class="car-specs">
+                        <div><span>Vitesse max:</span><span>~220 mph (354 km/h)</span></div>
+                        <div><span>Puissance:</span><span>850+ ch (V8 compressé)</span></div>
+                        <div><span>0-100 km/h:</span><span>2.6 s</span></div>
+                        <div><span>Prix:</span><span>~$150K</span></div>
+                    </div>
+                    <div class="car-description">
+                        La Corvette la plus puissante jamais produite, avec un rapport performance/prix inégalé.
+                        Nouveau record potentiel pour une voiture "abordable".
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align: center; color: #aaa; font-style: italic;">
+            <em>Les records évoluent vite – vérifiez les sources officielles pour les dernières mises à jour.</em>
+        </p>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="footer-links">
+            <span>Créé par Régis – Janvier 2026</span>
+            <a href="https://github.com/votre-utilisateur/voitures-rapides-2026" target="_blank">GitHub</a>
+            <a href="https://www.fastestlaps.com/" target="_blank">FastestLaps</a>
+            <a href="https://www.carwow.com/" target="_blank">Carwow</a>
+            <a href="https://www.guinnessworldrecords.com/" target="_blank">Guinness Records</a>
+        </div>
+        <div class="disclaimer">
+            <p>Données approximatives et sujettes à vérification. Les records peuvent changer rapidement.</p>
+            <p>Images : Unsplash (placeholders).</p>
+        </div>
+    </footer>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+        // Animation au scroll (IntersectionObserver)
+        document.addEventListener('DOMContentLoaded', function() {
+            const carCards = document.querySelectorAll('.car-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            carCards.forEach(card => observer.observe(card));
+
+            // Filtres
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const carGrid = document.getElementById('carGrid');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const filter = button.dataset.filter;
+                    const cars = carGrid.querySelectorAll('.car-card');
+
+                    cars.forEach(car => {
+                        if (filter === 'all') {
+                            car.style.display = 'block';
+                        } else if (filter === 'speed') {
+                            // Tri par vitesse (descendant)
+                            const sortedCars = Array.from(cars).sort((a, b) => {
+                                return parseInt(b.dataset.speed) - parseInt(a.dataset.speed);
+                            });
+                            sortedCars.forEach((car, index) => {
+                                carGrid.appendChild(car);
+                                car.querySelector('.car-rank').textContent = `${index + 1}.`;
+                            });
+                        } else {
+                            car.style.display = car.dataset.type === filter ? 'block' : 'none';
+                        }
+                    });
+                });
+            });
+
+            // Recherche par nom
+            const searchInput = document.createElement('input');
+            searchInput.type = 'text';
+            searchInput.placeholder = 'Rechercher une voiture...';
+            searchInput.style.margin = '20px auto';
+            searchInput.style.display = 'block';
+            searchInput.style.padding = '10px';
+            searchInput.style.width = '100%';
+            searchInput.style.maxWidth = '500px';
+            searchInput.style.borderRadius = '5px';
+            searchInput.style.border = '1px solid #444';
+            searchInput.style.backgroundColor = '#1a1a1a';
+            searchInput.style.color = 'white';
+
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const cars = carGrid.querySelectorAll('.car-card');
+
+                cars.forEach(car => {
+                    const carName = car.querySelector('.car-name').textContent.toLowerCase();
+                    car.style.display = carName.includes(searchTerm) ? 'block' : 'none';
+                });
+            });
+
+            document.querySelector('.top10').insertBefore(searchInput, document.querySelector('.filters'));
+        });
+
+        // Scroll vers le Top 10
+        function scrollToTop10() {
+            document.querySelector('.top10').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
