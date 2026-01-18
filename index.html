@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez le Top 10 des voitures les plus rapides sur Terre en 2026, avec leurs records vérifiés et théoriques.">
-    <meta property="og:title" content="Les Voitures les Plus Rapides du Monde 2026">
-    <meta property="og:description" content="Records vérifiés et théoriques – Hypercars, électriques et essence qui pulvérisent les limites !">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://votre-utilisateur.github.io/voitures-rapides-2026/">
-    <title>Les Voitures les Plus Rapides du Monde 2026</title>
+    <meta name="description" content="Découvrez les langages de programmation les plus populaires en 2026, leurs tendances et leurs cas d'usage.">
+    <meta property="og:title" content="Les Langages de Programmation en 2026">
+    <meta property="og:description" content="Analyse des langages les plus utilisés et prometteurs en 2026.">
+    <title>Les Langages de Programmation en 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* ===== Variables CSS ===== */
         :root {
             --bg-dark: #0a0a0a;
             --text-light: #e0e0e0;
-            --accent-red: #ff0000;
-            --accent-gray: #333;
+            --accent-blue: #0077ff;
+            --accent-purple: #8a2be2;
+            --accent-green: #00ff7f;
             --card-bg: #1a1a1a;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             --transition: all 0.3s ease;
+            --border-radius: 8px;
         }
 
         /* ===== Reset & Base ===== */
@@ -42,32 +42,47 @@
         /* ===== Header / Hero ===== */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                        url('https://source.unsplash.com/random/1920x1080/?hypercar,racing,track') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 20px;
+            background: linear-gradient(135deg, #0a0a20, #1a1a3a);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 119, 255, 0.1) 50%, transparent 70%);
         }
 
         .hero h1 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Fira Code', monospace;
             font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--accent-red);
+            color: var(--accent-blue);
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 0 10px rgba(0, 119, 255, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button {
-            background-color: var(--accent-red);
+            background-color: var(--accent-blue);
             color: white;
             padding: 12px 30px;
             border: none;
@@ -78,11 +93,14 @@
             transition: var(--transition);
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button:hover {
-            background-color: #cc0000;
+            background-color: #0055cc;
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 119, 255, 0.3);
         }
 
         /* ===== Introduction ===== */
@@ -93,10 +111,12 @@
         }
 
         .intro h2 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-red);
+            font-family: 'Fira Code', monospace;
+            color: var(--accent-purple);
             margin-bottom: 20px;
             font-size: 2rem;
+            text-decoration: underline;
+            text-decoration-color: var(--accent-green);
         }
 
         .intro p {
@@ -104,114 +124,123 @@
             max-width: 800px;
         }
 
-        /* ===== Top 10 Grid ===== */
-        .top10 {
+        /* ===== Section Top Langages ===== */
+        .top-langages {
             padding: 50px 20px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .top10 h2 {
-            font-family: 'Orbitron', sans-serif;
+        .top-langages h2 {
+            font-family: 'Fira Code', monospace;
             text-align: center;
             margin-bottom: 40px;
             font-size: 2.5rem;
-            color: var(--accent-red);
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .car-grid {
+        .langage-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 50px;
         }
 
-        .car-card {
+        .langage-card {
             background-color: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
+            border-radius: var(--border-radius);
+            padding: 30px;
             box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 119, 255, 0.2);
+            transition: var(--transition);
             opacity: 0;
             transform: translateY(20px);
-            transition: var(--transition);
         }
 
-        .car-card.visible {
+        .langage-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .car-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .langage-card:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 6px 12px rgba(0, 119, 255, 0.2);
+            transform: translateY(-5px);
         }
 
-        .car-info {
-            padding: 20px;
-        }
-
-        .car-rank {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-red);
+        .langage-rank {
+            font-family: 'Fira Code', monospace;
+            color: var(--accent-purple);
             font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .car-name {
-            font-size: 1.3rem;
             margin-bottom: 10px;
-            color: white;
         }
 
-        .car-specs {
+        .langage-name {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .langage-specs {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
-        .car-specs div {
+        .langage-specs div {
             display: flex;
             justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 119, 255, 0.1);
         }
 
-        .car-specs span:first-child {
+        .langage-specs span:first-child {
             color: #aaa;
         }
 
-        .car-description {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
+        .langage-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #ccc;
         }
 
         /* ===== Filtres ===== */
         .filters {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 30px;
             flex-wrap: wrap;
         }
 
         .filter-btn {
-            background-color: var(--accent-gray);
-            color: white;
-            border: none;
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            border: 1px solid var(--accent-blue);
             padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
             transition: var(--transition);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
         }
 
         .filter-btn.active {
-            background-color: var(--accent-red);
+            background-color: var(--accent-blue);
+            color: white;
         }
 
         .filter-btn:hover:not(.active) {
-            background-color: #444;
+            background-color: rgba(0, 119, 255, 0.1);
         }
 
         /* ===== Footer ===== */
@@ -220,6 +249,7 @@
             padding: 30px 20px;
             text-align: center;
             margin-top: 50px;
+            border-top: 1px solid rgba(0, 119, 255, 0.1);
         }
 
         .footer-links {
@@ -231,18 +261,19 @@
         }
 
         .footer-links a {
-            color: var(--text-light);
+            color: var(--accent-blue);
             text-decoration: none;
             transition: var(--transition);
+            font-family: 'Fira Code', monospace;
         }
 
         .footer-links a:hover {
-            color: var(--accent-red);
+            text-decoration: underline;
         }
 
         .disclaimer {
             font-size: 0.8rem;
-            color: #aaa;
+            color: #888;
             margin-top: 20px;
         }
 
@@ -256,7 +287,7 @@
                 font-size: 1rem;
             }
 
-            .car-specs {
+            .langage-specs {
                 grid-template-columns: 1fr;
             }
 
@@ -270,247 +301,242 @@
 <body>
     <!-- ===== Header / Hero ===== -->
     <section class="hero">
-        <h1>Les Voitures les Plus Rapides sur Terre en 2026</h1>
-        <p>Records vérifiés et théoriques – Hypercars, électriques et essence qui pulvérisent les limites !</p>
-        <button class="cta-button" onclick="scrollToTop10()">Découvre le Top 10</button>
+        <h1>Les Langages de Programmation en 2026</h1>
+        <p>
+            Découvrez les langages les plus populaires, leurs tendances et leurs cas d'usage.
+            Une analyse complète pour les développeurs et passionnés de tech.
+        </p>
+        <button class="cta-button" onclick="scrollToTopLangages()">Voir le Top 10</button>
     </section>
 
     <!-- ===== Introduction ===== -->
     <section class="intro">
-        <h2>Qu'est-ce qu'une voiture de production ultra-rapide ?</h2>
+        <h2>Pourquoi ces langages dominent en 2026 ?</h2>
         <p>
-            Une voiture de production ultra-rapide est un véhicule homologué pour la route (road-legal),
-            produit en série limitée, et capable d'atteindre des vitesses extrêmes. Contrairement aux prototypes
-            ou voitures de course, ces modèles doivent respecter les normes routières et être vendus à des clients.
+            En 2026, le paysage des langages de programmation évolue rapidement.
+            Les langages modernes comme <strong>Rust</strong> et <strong>TypeScript</strong> gagnent en popularité,
+            tandis que des classiques comme <strong>Python</strong> et <strong>JavaScript</strong> restent incontournables.
+            Les critères de choix incluent la performance, la sécurité, la facilité d'apprentissage et l'écosystème.
         </p>
         <p>
-            Les records de vitesse sont souvent sujets à débat : certains sont <strong>vérifiés</strong> (comme par Guinness ou des organismes indépendants),
-            tandis que d'autres restent <strong>théoriques</strong>, basés sur des simulations ou des conditions idéales.
-            Les défis incluent la tenue de route, l'aérodynamisme, les pneus, et la puissance pure.
+            Cette page présente une analyse des langages les plus utilisés, basée sur des données
+            issues de <a href="https://stackoverflow.com/" style="color: var(--accent-blue);">Stack Overflow</a>,
+            <a href="https://github.com/" style="color: var(--accent-blue);">GitHub</a>, et
+            <a href="https://www.tiobe.com/" style="color: var(--accent-blue);">TIOBE</a>.
         </p>
-        <p><em>Mise à jour : Janvier 2026</em></p>
     </section>
 
     <!-- ===== Filtres ===== -->
-    <section class="top10">
-        <h2>Top 10 des Voitures les Plus Rapides en 2026</h2>
+    <section class="top-langages">
+        <h2>Top 10 des Langages en 2026</h2>
         <div class="filters">
-            <button class="filter-btn active" data-filter="all">Toutes</button>
-            <button class="filter-btn" data-filter="electric">Électriques</button>
-            <button class="filter-btn" data-filter="gas">Essence</button>
-            <button class="filter-btn" data-filter="speed">Par Vitesse</button>
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="system">Système</button>
+            <button class="filter-btn" data-filter="data">Data</button>
+            <button class="filter-btn" data-filter="trend">Tendance</button>
         </div>
 
-        <!-- ===== Top 10 Grid ===== -->
-        <div class="car-grid" id="carGrid">
-            <!-- Carte 1: Yangwang U9 Xtreme -->
-            <div class="car-card" data-type="electric" data-speed="308">
-                <img src="https://source.unsplash.com/random/600x400/?hypercar,electric" alt="Yangwang U9 Xtreme - Hypercar électrique chinoise">
-                <div class="car-info">
-                    <div class="car-rank">1.</div>
-                    <div class="car-name">Yangwang U9 Xtreme</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>308 mph (496 km/h)</span></div>
-                        <div><span>Puissance:</span><span>~2 000 ch (électrique)</span></div>
-                        <div><span>0-100 km/h:</span><span>1.8 s</span></div>
-                        <div><span>Prix:</span><span>~$2M</span></div>
-                    </div>
-                    <div class="car-description">
-                        La première hypercar électrique à battre un record de vitesse vérifié en 2025.
-                        Technologie chinoise de pointe et design futuriste.
-                    </div>
+        <!-- ===== Grille des langages ===== -->
+        <div class="langage-grid" id="langageGrid">
+            <!-- Langage 1: Python -->
+            <div class="langage-card" data-type="data" data-trend="true">
+                <div class="langage-rank">1.</div>
+                <div class="langage-name">Python</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★★★</span></div>
+                    <div><span>Type:</span><span>Polyvalent</span></div>
+                    <div><span>Cas d'usage:</span><span>IA, Data, Web</span></div>
+                    <div><span>Année:</span><span>1991</span></div>
+                    <div><span>Tendance 2026:</span><span>↑ 5%</span></div>
+                    <div><span>Salaire moyen:</span><span>~$110K</span></div>
+                </div>
+                <div class="langage-description">
+                    Python reste le langage le plus populaire en 2026, grâce à sa simplicité et son écosystème riche.
+                    Utilisé dans l'IA, le machine learning, et le développement web (Django, Flask).
                 </div>
             </div>
 
-            <!-- Carte 2: Koenigsegg Jesko Absolut -->
-            <div class="car-card" data-type="gas" data-speed="330">
-                <img src="https://source.unsplash.com/random/600x400/?koenigsegg,jesko" alt="Koenigsegg Jesko Absolut - Hypercar essence">
-                <div class="car-info">
-                    <div class="car-rank">2.</div>
-                    <div class="car-name">Koenigsegg Jesko Absolut</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>~310-330 mph (théorique)</span></div>
-                        <div><span>Puissance:</span><span>1 600 ch (V8 biturbo)</span></div>
-                        <div><span>0-100 km/h:</span><span>2.5 s</span></div>
-                        <div><span>Prix:</span><span>~$3M</span></div>
-                    </div>
-                    <div class="car-description">
-                        Conçue pour battre tous les records grâce à son aérodynamisme extrême et son V8 suralimenté.
-                        Record officiel en attente de vérification.
-                    </div>
+            <!-- Langage 2: JavaScript -->
+            <div class="langage-card" data-type="web" data-trend="true">
+                <div class="langage-rank">2.</div>
+                <div class="langage-name">JavaScript</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★★★</span></div>
+                    <div><span>Type:</span><span>Web</span></div>
+                    <div><span>Cas d'usage:</span><span>Frontend, Backend</span></div>
+                    <div><span>Année:</span><span>1995</span></div>
+                    <div><span>Tendance 2026:</span><span>↑ 3%</span></div>
+                    <div><span>Salaire moyen:</span><span>~$105K</span></div>
+                </div>
+                <div class="langage-description">
+                    JavaScript domine toujours le développement web, avec des frameworks comme React, Vue et Node.js.
+                    En 2026, il s'étend aussi à l'IoT et aux applications desktop (Electron).
                 </div>
             </div>
 
-            <!-- Carte 3: Bugatti Mistral -->
-            <div class="car-card" data-type="gas" data-speed="282">
-                <img src="https://source.unsplash.com/random/600x400/?bugatti,mistral" alt="Bugatti Mistral - Hypercar essence">
-                <div class="car-info">
-                    <div class="car-rank">3.</div>
-                    <div class="car-name">Bugatti Mistral</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>~282 mph (454 km/h)</span></div>
-                        <div><span>Puissance:</span><span>1 600 ch (W16)</span></div>
-                        <div><span>0-100 km/h:</span><span>2.0 s</span></div>
-                        <div><span>Prix:</span><span>~$5M</span></div>
-                    </div>
-                    <div class="car-description">
-                        Dernière Bugatti à moteur thermique, héritière de la Chiron.
-                        Design élégant et performances monstrueuses.
-                    </div>
+            <!-- Langage 3: Rust -->
+            <div class="langage-card" data-type="system" data-trend="true">
+                <div class="langage-rank">3.</div>
+                <div class="langage-name">Rust</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★★☆</span></div>
+                    <div><span>Type:</span><span>Système</span></div>
+                    <div><span>Cas d'usage:</span><span>Performance, Sécurité</span></div>
+                    <div><span>Année:</span><span>2010</span></div>
+                    <div><span>Tendance 2026:</span><span>↑ 20%</span></div>
+                    <div><span>Salaire moyen:</span><span>~$130K</span></div>
+                </div>
+                <div class="langage-description">
+                    Rust est le langage le plus en croissance en 2026, grâce à sa sécurité mémoire et sa performance.
+                    Adopté par les géants comme Microsoft et Google pour des projets critiques.
                 </div>
             </div>
 
-            <!-- Carte 4: Hennessey Venom F5 -->
-            <div class="car-card" data-type="gas" data-speed="311">
-                <img src="https://source.unsplash.com/random/600x400/?hennessey,venom" alt="Hennessey Venom F5 - Hypercar essence">
-                <div class="car-info">
-                    <div class="car-rank">4.</div>
-                    <div class="car-name">Hennessey Venom F5</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>311 mph (500 km/h)</span></div>
-                        <div><span>Puissance:</span><span>1 817 ch (V8 biturbo)</span></div>
-                        <div><span>0-100 km/h:</span><span>2.6 s</span></div>
-                        <div><span>Prix:</span><span>~$2.1M</span></div>
-                    </div>
-                    <div class="car-description">
-                        Développée pour dépasser les 300 mph, avec une aérodynamique inspirée des avions de chasse.
-                        Record controversé en 2020, toujours en quête de reconnaissance.
-                    </div>
+            <!-- Langage 4: TypeScript -->
+            <div class="langage-card" data-type="web" data-trend="true">
+                <div class="langage-rank">4.</div>
+                <div class="langage-name">TypeScript</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★★★</span></div>
+                    <div><span>Type:</span><span>Web</span></div>
+                    <div><span>Cas d'usage:</span><span>Frontend, Backend</span></div>
+                    <div><span>Année:</span><span>2012</span></div>
+                    <div><span>Tendance 2026:</span><span>↑ 10%</span></div>
+                    <div><span>Salaire moyen:</span><span>~$115K</span></div>
+                </div>
+                <div class="langage-description">
+                    TypeScript, le sur-ensemble typé de JavaScript, est devenu la norme pour les projets web en 2026.
+                    Utilisé par 90% des développeurs frontend et backend (Node.js).
                 </div>
             </div>
 
-            <!-- Carte 5: SSC Tuatara -->
-            <div class="car-card" data-type="gas" data-speed="295">
-                <img src="https://source.unsplash.com/random/600x400/?ssc,tuatara" alt="SSC Tuatara - Hypercar essence">
-                <div class="car-info">
-                    <div class="car-rank">5.</div>
-                    <div class="car-name">SSC Tuatara</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>~295-330 mph (théorique)</span></div>
-                        <div><span>Puissance:</span><span>1 750 ch (V8 biturbo)</span></div>
-                        <div><span>0-100 km/h:</span><span>2.5 s</span></div>
-                        <div><span>Prix:</span><span>~$1.9M</span></div>
-                    </div>
-                    <div class="car-description">
-                        Conçue pour être la voiture de série la plus rapide du monde.
-                        Record de 316 mph revendiqué, mais non officiellement vérifié.
-                    </div>
+            <!-- Langage 5: Go -->
+            <div class="langage-card" data-type="system" data-trend="true">
+                <div class="langage-rank">5.</div>
+                <div class="langage-name">Go</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★★☆</span></div>
+                    <div><span>Type:</span><span>Système</span></div>
+                    <div><span>Cas d'usage:</span><span>Cloud, DevOps</span></div>
+                    <div><span>Année:</span><span>2009</span></div>
+                    <div><span>Tendance 2026:</span><span>↑ 8%</span></div>
+                    <div><span>Salaire moyen:</span><span>~$120K</span></div>
+                </div>
+                <div class="langage-description">
+                    Go (Golang) reste un favori pour les applications cloud et les outils DevOps en 2026.
+                    Sa simplicité et sa concurrency en font un choix idéal pour les microservices.
                 </div>
             </div>
 
-            <!-- Carte 6: Rimac Nevera R -->
-            <div class="car-card" data-type="electric" data-speed="258">
-                <img src="https://source.unsplash.com/random/600x400/?rimac,nevera" alt="Rimac Nevera R - Hypercar électrique">
-                <div class="car-info">
-                    <div class="car-rank">6.</div>
-                    <div class="car-name">Rimac Nevera R</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>258 mph (412 km/h)</span></div>
-                        <div><span>Puissance:</span><span>1 914 ch (électrique)</span></div>
-                        <div><span>0-100 km/h:</span><span>1.74 s</span></div>
-                        <div><span>Prix:</span><span>~$2.5M</span></div>
-                    </div>
-                    <div class="car-description">
-                        Reine de l'accélération, cette hypercar croate allie performance et technologie électrique de pointe.
-                        Version "R" encore plus radicale que la Nevera originale.
-                    </div>
+            <!-- Langage 6: Java -->
+            <div class="langage-card" data-type="system">
+                <div class="langage-rank">6.</div>
+                <div class="langage-name">Java</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★★☆</span></div>
+                    <div><span>Type:</span><span>Polyvalent</span></div>
+                    <div><span>Cas d'usage:</span><span>Entreprise, Android</span></div>
+                    <div><span>Année:</span><span>1995</span></div>
+                    <div><span>Tendance 2026:</span><span>→ Stable</span></div>
+                    <div><span>Salaire moyen:</span><span>~$100K</span></div>
+                </div>
+                <div class="langage-description">
+                    Java reste un pilier dans le monde de l'entreprise et du développement Android.
+                    Malgré la concurrence de Kotlin, il reste largement utilisé pour les systèmes critiques.
                 </div>
             </div>
 
-            <!-- Carte 7: McLaren Speedtail -->
-            <div class="car-card" data-type="gas" data-speed="250">
-                <img src="https://source.unsplash.com/random/600x400/?mclaren,speedtail" alt="McLaren Speedtail - Hypercar essence">
-                <div class="car-info">
-                    <div class="car-rank">7.</div>
-                    <div class="car-name">McLaren Speedtail</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>250 mph (402 km/h)</span></div>
-                        <div><span>Puissance:</span><span>1 035 ch (hybride V8)</span></div>
-                        <div><span>0-100 km/h:</span><span>2.9 s</span></div>
-                        <div><span>Prix:</span><span>~$2.2M</span></div>
-                    </div>
-                    <div class="car-description">
-                        Hyper-GT hybride au design futuriste et à l'aérodynamisme optimisé.
-                        Limitée à 106 exemplaires, tous vendus.
-                    </div>
+            <!-- Langage 7: C# -->
+            <div class="langage-card" data-type="system">
+                <div class="langage-rank">7.</div>
+                <div class="langage-name">C#</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★★☆</span></div>
+                    <div><span>Type:</span><span>Polyvalent</span></div>
+                    <div><span>Cas d'usage:</span><span>Jeux, Entreprise</span></div>
+                    <div><span>Année:</span><span>2000</span></div>
+                    <div><span>Tendance 2026:</span><span>↑ 2%</span></div>
+                    <div><span>Salaire moyen:</span><span>~$95K</span></div>
+                </div>
+                <div class="langage-description">
+                    C# est toujours le langage de prédilection pour le développement de jeux (Unity) et les applications Windows.
+                    En 2026, il s'étend aussi au web avec Blazor.
                 </div>
             </div>
 
-            <!-- Carte 8: Pagani Huayra -->
-            <div class="car-card" data-type="gas" data-speed="240">
-                <img src="https://source.unsplash.com/random/600x400/?pagani,huayra" alt="Pagani Huayra - Hypercar essence">
-                <div class="car-info">
-                    <div class="car-rank">8.</div>
-                    <div class="car-name">Pagani Huayra</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>~240 mph (386 km/h)</span></div>
-                        <div><span>Puissance:</span><span>800 ch (V12 AMG)</span></div>
-                        <div><span>0-100 km/h:</span><span>2.8 s</span></div>
-                        <div><span>Prix:</span><span>~$3M+</span></div>
-                    </div>
-                    <div class="car-description">
-                        Œuvre d'art italienne sur roues, avec un V12 atmosphérique et un design unique.
-                        La version "Roadster BC" est encore plus extrême.
-                    </div>
+            <!-- Langage 8: Kotlin -->
+            <div class="langage-card" data-type="web">
+                <div class="langage-rank">8.</div>
+                <div class="langage-name">Kotlin</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★★☆</span></div>
+                    <div><span>Type:</span><span>Polyvalent</span></div>
+                    <div><span>Cas d'usage:</span><span>Android, Backend</span></div>
+                    <div><span>Année:</span><span>2011</span></div>
+                    <div><span>Tendance 2026:</span><span>↑ 5%</span></div>
+                    <div><span>Salaire moyen:</span><span>~$105K</span></div>
+                </div>
+                <div class="langage-description">
+                    Kotlin est le langage préféré pour le développement Android en 2026, grâce à sa concision et son interopérabilité avec Java.
+                    Il gagne aussi en popularité pour le backend (Ktor, Spring).
                 </div>
             </div>
 
-            <!-- Carte 9: Aston Martin Valkyrie -->
-            <div class="car-card" data-type="gas" data-speed="250">
-                <img src="https://source.unsplash.com/random/600x400/?aston,martin,valkyrie" alt="Aston Martin Valkyrie - Hypercar essence">
-                <div class="car-info">
-                    <div class="car-rank">9.</div>
-                    <div class="car-name">Aston Martin Valkyrie</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>~250 mph (402 km/h)</span></div>
-                        <div><span>Puissance:</span><span>1 160 ch (V12 hybride)</span></div>
-                        <div><span>0-100 km/h:</span><span>2.5 s</span></div>
-                        <div><span>Prix:</span><span>~$3M</span></div>
-                    </div>
-                    <div class="car-description">
-                        Développée avec Red Bull Racing, cette hypercar utilise des technologies de F1.
-                        Limitée à 150 exemplaires, tous réservés.
-                    </div>
+            <!-- Langage 9: Swift -->
+            <div class="langage-card" data-type="web">
+                <div class="langage-rank">9.</div>
+                <div class="langage-name">Swift</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★★☆</span></div>
+                    <div><span>Type:</span><span>Mobile</span></div>
+                    <div><span>Cas d'usage:</span><span>iOS, macOS</span></div>
+                    <div><span>Année:</span><span>2014</span></div>
+                    <div><span>Tendance 2026:</span><span>→ Stable</span></div>
+                    <div><span>Salaire moyen:</span><span>~$110K</span></div>
+                </div>
+                <div class="langage-description">
+                    Swift reste le langage incontournable pour le développement d'applications Apple (iOS, macOS, watchOS).
+                    En 2026, il s'ouvre aussi au backend avec Vapor.
                 </div>
             </div>
 
-            <!-- Carte 10: Chevrolet Corvette ZR1 2026 -->
-            <div class="car-card" data-type="gas" data-speed="220">
-                <img src="https://source.unsplash.com/random/600x400/?corvette,zr1" alt="Chevrolet Corvette ZR1 2026 - Supercar essence">
-                <div class="car-info">
-                    <div class="car-rank">10.</div>
-                    <div class="car-name">Chevrolet Corvette ZR1 2026</div>
-                    <div class="car-specs">
-                        <div><span>Vitesse max:</span><span>~220 mph (354 km/h)</span></div>
-                        <div><span>Puissance:</span><span>850+ ch (V8 compressé)</span></div>
-                        <div><span>0-100 km/h:</span><span>2.6 s</span></div>
-                        <div><span>Prix:</span><span>~$150K</span></div>
-                    </div>
-                    <div class="car-description">
-                        La Corvette la plus puissante jamais produite, avec un rapport performance/prix inégalé.
-                        Nouveau record potentiel pour une voiture "abordable".
-                    </div>
+            <!-- Langage 10: PHP -->
+            <div class="langage-card" data-type="web">
+                <div class="langage-rank">10.</div>
+                <div class="langage-name">PHP</div>
+                <div class="langage-specs">
+                    <div><span>Popularité:</span><span>★★★☆☆</span></div>
+                    <div><span>Type:</span><span>Web</span></div>
+                    <div><span>Cas d'usage:</span><span>Backend, CMS</span></div>
+                    <div><span>Année:</span><span>1994</span></div>
+                    <div><span>Tendance 2026:</span><span>↓ -3%</span></div>
+                    <div><span>Salaire moyen:</span><span>~$85K</span></div>
+                </div>
+                <div class="langage-description">
+                    PHP reste largement utilisé pour les sites web, notamment grâce à WordPress et Laravel.
+                    En 2026, il évolue avec PHP 9.0, mais perd du terrain face à JavaScript et Go.
                 </div>
             </div>
         </div>
 
-        <p style="text-align: center; color: #aaa; font-style: italic;">
-            <em>Les records évoluent vite – vérifiez les sources officielles pour les dernières mises à jour.</em>
+        <p style="text-align: center; color: #aaa; font-style: italic; margin-top: 30px;">
+            <em>Les tendances évoluent rapidement – vérifiez les sources officielles pour les dernières mises à jour.</em>
         </p>
     </section>
 
     <!-- ===== Footer ===== -->
     <footer class="footer">
         <div class="footer-links">
-            <span>Créé par Régis – Janvier 2026</span>
-            <a href="https://github.com/votre-utilisateur/voitures-rapides-2026" target="_blank">GitHub</a>
-            <a href="https://www.fastestlaps.com/" target="_blank">FastestLaps</a>
-            <a href="https://www.carwow.com/" target="_blank">Carwow</a>
-            <a href="https://www.guinnessworldrecords.com/" target="_blank">Guinness Records</a>
+            <span>Créé par Régis Gomis – Janvier 2026</span>
+            <a href="https://github.com/regis-gomis" target="_blank">GitHub</a>
+            <a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a>
+            <a href="https://www.tiobe.com/" target="_blank">TIOBE Index</a>
+            <a href="https://github.com/" target="_blank">GitHub Trends</a>
         </div>
         <div class="disclaimer">
-            <p>Données approximatives et sujettes à vérification. Les records peuvent changer rapidement.</p>
-            <p>Images : Unsplash (placeholders).</p>
+            <p>Données approximatives basées sur des tendances observées en 2025-2026.</p>
+            <p>Les salaires et popularités sont des estimations moyennes.</p>
         </div>
     </footer>
 
@@ -518,7 +544,7 @@
     <script>
         // Animation au scroll (IntersectionObserver)
         document.addEventListener('DOMContentLoaded', function() {
-            const carCards = document.querySelectorAll('.car-card');
+            const langageCards = document.querySelectorAll('.langage-card');
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -528,11 +554,11 @@
                 });
             }, { threshold: 0.1 });
 
-            carCards.forEach(card => observer.observe(card));
+            langageCards.forEach(card => observer.observe(card));
 
             // Filtres
             const filterButtons = document.querySelectorAll('.filter-btn');
-            const carGrid = document.getElementById('carGrid');
+            const langageGrid = document.getElementById('langageGrid');
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
@@ -540,57 +566,24 @@
                     button.classList.add('active');
 
                     const filter = button.dataset.filter;
-                    const cars = carGrid.querySelectorAll('.car-card');
+                    const langages = langageGrid.querySelectorAll('.langage-card');
 
-                    cars.forEach(car => {
+                    langages.forEach(langage => {
                         if (filter === 'all') {
-                            car.style.display = 'block';
-                        } else if (filter === 'speed') {
-                            // Tri par vitesse (descendant)
-                            const sortedCars = Array.from(cars).sort((a, b) => {
-                                return parseInt(b.dataset.speed) - parseInt(a.dataset.speed);
-                            });
-                            sortedCars.forEach((car, index) => {
-                                carGrid.appendChild(car);
-                                car.querySelector('.car-rank').textContent = `${index + 1}.`;
-                            });
+                            langage.style.display = 'block';
+                        } else if (filter === 'trend') {
+                            langage.style.display = langage.dataset.trend === 'true' ? 'block' : 'none';
                         } else {
-                            car.style.display = car.dataset.type === filter ? 'block' : 'none';
+                            langage.style.display = langage.dataset.type === filter ? 'block' : 'none';
                         }
                     });
                 });
             });
-
-            // Recherche par nom
-            const searchInput = document.createElement('input');
-            searchInput.type = 'text';
-            searchInput.placeholder = 'Rechercher une voiture...';
-            searchInput.style.margin = '20px auto';
-            searchInput.style.display = 'block';
-            searchInput.style.padding = '10px';
-            searchInput.style.width = '100%';
-            searchInput.style.maxWidth = '500px';
-            searchInput.style.borderRadius = '5px';
-            searchInput.style.border = '1px solid #444';
-            searchInput.style.backgroundColor = '#1a1a1a';
-            searchInput.style.color = 'white';
-
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const cars = carGrid.querySelectorAll('.car-card');
-
-                cars.forEach(car => {
-                    const carName = car.querySelector('.car-name').textContent.toLowerCase();
-                    car.style.display = carName.includes(searchTerm) ? 'block' : 'none';
-                });
-            });
-
-            document.querySelector('.top10').insertBefore(searchInput, document.querySelector('.filters'));
         });
 
         // Scroll vers le Top 10
-        function scrollToTop10() {
-            document.querySelector('.top10').scrollIntoView({ behavior: 'smooth' });
+        function scrollToTopLangages() {
+            document.querySelector('.top-langages').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
